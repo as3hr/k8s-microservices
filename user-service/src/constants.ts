@@ -1,0 +1,1 @@
+export const TASKS_URL = process.env.TASKS_URL || "http://localhost:3001";
