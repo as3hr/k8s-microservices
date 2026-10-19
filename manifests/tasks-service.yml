@@ -22,7 +22,7 @@ spec:
             - name: PORT
               value: "3001"
             - name: DATABASE_URL
-              value: postgres://postgres:postgres@host.docker.internal:5433/k8s_demo
+              value: postgres://postgres:postgres@postgres:5432/k8s_demo
 ---
 apiVersion: v1
 kind: Service

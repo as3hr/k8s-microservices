@@ -9,7 +9,7 @@ to laod task service image into our cluster:-
 - kind load docker-image tasks-service:1.0 --name todo-cluster
 
 apply & testing commands for pods:-
-- kubectl apply -f manifests/tasks-service.yaml
+- kubectl apply -f manifests/tasks-service.yml
 - kubectl get pods
 - kubectl port-forward svc/tasks-service 3001:3001
 
@@ -20,3 +20,9 @@ same for user service we will do!
 
 but in order for user-service to communicate with tasks service, we need tasks service url where it is running.
 so it will be the cluster dns name of tasks service which will be the host of that service via which we can call task service processes.
+
+then we apply the user-service
+
+- kubectl apply -f manifests/user-service.yml
+- kubectl get pods
+- kubectl port-forward svc/user-service 3000:3000
