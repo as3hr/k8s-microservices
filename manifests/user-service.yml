@@ -18,13 +18,11 @@ spec:
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000
-          env:
-            - name: PORT
-              value: "3000"
-            - name: DATABASE_URL
-              value: postgres://postgres:postgres@postgres:5432/k8s_demo
-            - name: TASKS_URL
-              value: http://tasks-service:3001
+          envFrom:
+          - configMapRef:
+              name: user-service-config
+          - secretRef:
+              name: user-service-secret
 ---
 apiVersion: v1
 kind: Service
@@ -37,3 +35,11 @@ spec:
   ports:
     - port: 3000
       targetPort: 3000
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-service-config
+data:
+  PORT: "3000"
+  TASKS_SERVICE_URL: http://tasks-service:3001

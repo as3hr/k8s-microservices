@@ -26,3 +26,10 @@ then we apply the user-service
 - kubectl apply -f manifests/user-service.yml
 - kubectl get pods
 - kubectl port-forward svc/user-service 3000:3000
+
+in order to save env file and important credentials we will have to use secrets and configMap in our yml, and our credentials will be protected...
+in production we use secret manager and load it via that instead of this.
+
+command to create secrets:-
+- kubectl create secret generic tasks-service-secret --from-env-file=tasks-service/.env
+- kubectl create secret generic user-service-secret --from-env-file=user-service/.env
