@@ -4,4 +4,4 @@ metadata:
   name: user-service-config
 data:
   PORT: "3000"
-  TASKS_SERVICE_URL: http://tasks-service:3001
+  TASKS_URL: http://tasks-service:3001
