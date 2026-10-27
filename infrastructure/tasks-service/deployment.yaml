@@ -23,22 +23,3 @@ spec:
                 name: tasks-service-config
             - secretRef:
                 name: tasks-service-secret
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: tasks-service
-spec:
-  type: ClusterIP
-  selector:
-    app: tasks-service
-  ports:
-    - port: 3001
-      targetPort: 3001
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: tasks-service-config
-data:
-  PORT: "3001"
